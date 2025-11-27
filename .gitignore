@@ -1,5 +1,5 @@
 # Project specific
-test*.json
+output/test_*.json
 src/cache/tags/*.html
 
 # Backup some pages for reference

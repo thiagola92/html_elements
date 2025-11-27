@@ -15,8 +15,10 @@ Path(OUTPUT).write_text(dumps(sections, indent=2))
 
 for s in sections.values():
     for i in s.values():
-        if i.get("url"):
-            response = requests.get(i.get("url"))
+        if url := i.get("url"):
+            print(url)
+
+            response = requests.get(url)
 
             if response.ok:
                 webpage = response.content
