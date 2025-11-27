@@ -5,6 +5,24 @@ Scraped from
 
 - [JSON](output/output.json)
 
+## Usage
+
+Make sure to install uv: https://docs.astral.sh/uv/getting-started/installation/
+
+Install dependencies:
+
+```
+uv sync
+```
+
+Execute scraper:
+
+```
+uv run src/main.py
+```
+
+## Questions
+
 Why not from [WHATWG](https://html.spec.whatwg.org/#toc-semantics)?
 
 > It is very annoying to scrape this website.
