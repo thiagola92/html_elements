@@ -1,5 +1,14 @@
-# Project
+# Project specific
 test*.json
+src/cache/tags/*.html
+
+# Backup some pages for reference
+!src/cache/tags/html.html
+!src/cache/tags/body.html
+!src/cache/tags/head.html
+!src/cache/tags/iframe.html
+!src/cache/tags/video.html
+!src/cache/tags/script.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
