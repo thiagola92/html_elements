@@ -1,9 +1,9 @@
 # HTML Elements
 
-[JSON](output/output.json)
-
 Scraped from
 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#interactive_elements).
+
+- [JSON](output/output.json)
 
 Why not from [WHATWG](https://html.spec.whatwg.org/#toc-semantics)?
 
