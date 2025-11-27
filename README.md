@@ -5,6 +5,33 @@ Scraped from
 
 - [JSON](output/output.json)
 
+Elements are splitted in sections. For example `<html>` can be found in the "Main root" section:
+
+```jsonc
+{
+  "Main root": {
+    "html": {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/html",
+      "short_desc": "Short description.",
+      "attributes": {
+        "version": {
+          "description": "Attribute description.",
+          "deprecated": true,
+          "boolean": false
+        },
+        "xmlns": {
+          "description": "Attribute description.",
+          "deprecated": false,
+          "boolean": false
+        }
+      },
+      "long_desc": "Long description."
+    }
+  },
+  // Other sections...
+}
+```
+
 ## Usage
 
 Make sure to install uv: https://docs.astral.sh/uv/getting-started/installation/
