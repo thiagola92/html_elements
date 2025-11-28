@@ -26,6 +26,5 @@ for f in Path(CACHE_TAGS).iterdir():
     print(f.stem)
 
     details[f.stem] = extract_details(f.read_text())
-    details[f.stem].update(global_attributes)
 
 Path(OUTPUT_02).write_text(dumps(details, indent=2))

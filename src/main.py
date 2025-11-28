@@ -30,8 +30,12 @@ for s in sections.values():
             if response.ok:
                 webpage = response.content
                 details = extract_details(webpage)
-                details.update(global_attributes)
 
                 i.update(details)
 
-Path(OUTPUT).write_text(dumps(sections, indent=2))
+output = {
+    "sections": sections,
+    "global_attributes": global_attributes,
+}
+
+Path(OUTPUT).write_text(dumps(output, indent=2))
