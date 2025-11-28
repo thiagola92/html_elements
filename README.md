@@ -5,30 +5,40 @@ Scraped from
 
 - [JSON](output/output.json)
 
-Elements are splitted in sections. For example `<html>` can be found in the "Main root" section:
+Elements are splitted in sections. For example `<html>` can be found in the
+"Main root" section:
 
 ```jsonc
 {
-  "Main root": {
-    "html": {
-      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/html",
-      "short_desc": "Short description.",
-      "attributes": {
-        "version": {
-          "description": "Attribute description.",
-          "deprecated": true,
-          "boolean": false
+  "sections": {
+    "Main root": {
+      "html": {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/html",
+        "short_desc": "Represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element.",
+        "attributes": {
+          "version": {
+            "description": "Specifies the version of the HTML Document Type Definition that governs the current document. This attribute is not needed, because it is redundant with the version information in the document type declaration.",
+            "deprecated": true,
+            "nonstandard": false,
+            "experimental": false,
+            "boolean": false
+          },
+          "xmlns": {
+            "description": "Specifies the XML Namespace of the document. Default value is \"http://www.w3.org/1999/xhtml\". This is required in documents parsed with XML parsers, and optional in text/html documents.",
+            "deprecated": false,
+            "nonstandard": false,
+            "experimental": false,
+            "boolean": false
+          }
         },
-        "xmlns": {
-          "description": "Attribute description.",
-          "deprecated": false,
-          "boolean": false
-        }
-      },
-      "long_desc": "Long description."
+        "long_desc": "The <html> HTML element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element. There can be only one <html> element in a document."
+      }
     }
+    // Other sections...
   },
-  // Other sections...
+  "global_attributes": {
+    // All global attributes...
+  }
 }
 ```
 
