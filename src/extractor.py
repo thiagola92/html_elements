@@ -55,7 +55,11 @@ def extract_sections(webpage: str) -> dict[str, dict[str, dict]]:
     return sections
 
 
-def extract_details(webpage: str) -> dict:
+def extract_globals(webpage: str) -> dict:
+    return extract_details(webpage, "List of global attributes")
+
+
+def extract_details(webpage: str, header_text: str = "Attributes") -> dict:
     DESCRIPTION = (
         ".//div[@class='reference-layout__header']//section[@class='content-section']"
     )
@@ -63,6 +67,8 @@ def extract_details(webpage: str) -> dict:
     LIST = ".//dl"
     ATTRIBUTE = ".//a/code"
     DEPRECATED = ".//abbr[@class='icon icon-deprecated']"
+    NONSTANDARD = ".//abbr[@class='icon icon-nonstandard']"
+    EXPERIMENTAL = ".//abbr[@class='icon icon-experimental']"
 
     # https://github.com/html5lib/html5lib-python/issues/489
     document = html5lib.parse(webpage, namespaceHTMLElements=False)
@@ -86,7 +92,7 @@ def extract_details(webpage: str) -> dict:
         header = "".join(header.itertext())
         header = clean_text(header)
 
-        if header != "Attributes":
+        if header != header_text:
             continue
 
         attributes = {}
@@ -99,11 +105,15 @@ def extract_details(webpage: str) -> dict:
                 attribute = element.find(ATTRIBUTE)
                 attribute = "".join(attribute.itertext())
                 deprecated = element.find(DEPRECATED) is not None
+                nonstandard = element.find(NONSTANDARD) is not None
+                experimental = element.find(EXPERIMENTAL) is not None
 
                 # Set.
                 attributes[attribute] = {
                     "description": "",
                     "deprecated": deprecated,
+                    "nonstandard": nonstandard,
+                    "experimental": experimental,
                     "boolean": False,
                 }
             elif attribute and element.tag == "dd":

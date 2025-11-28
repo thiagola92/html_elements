@@ -1,17 +1,24 @@
 from json import dumps
 from pathlib import Path
 
-from extractor import extract_details, extract_sections
+from extractor import extract_details, extract_sections, extract_globals
 
 CACHE_ELEMENTS = "src/cache/elements.html"
 CACHE_TAGS = "src/cache/tags"
+CACHE_GLOBALS = "src/cache/global_attributes.html"
 OUTPUT_00 = "output/test_output_00.json"
 OUTPUT_01 = "output/test_output_01.json"
+OUTPUT_02 = "output/test_output_02.json"
 
 webpage = Path(CACHE_ELEMENTS).read_text()
 sections = extract_sections(webpage)
 
 Path(OUTPUT_00).write_text(dumps(sections, indent=2))
+
+webpage = Path(CACHE_GLOBALS).read_text()
+global_attributes = extract_globals(webpage)
+
+Path(OUTPUT_01).write_text(dumps(global_attributes, indent=2))
 
 details = {}
 
@@ -19,5 +26,6 @@ for f in Path(CACHE_TAGS).iterdir():
     print(f.stem)
 
     details[f.stem] = extract_details(f.read_text())
+    details[f.stem].update(global_attributes)
 
-Path(OUTPUT_01).write_text(dumps(details, indent=2))
+Path(OUTPUT_02).write_text(dumps(details, indent=2))
