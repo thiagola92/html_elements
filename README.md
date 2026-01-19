@@ -1,5 +1,11 @@
 # HTML Elements
 
+> [!WARNING]
+> Deprecated
+> 
+> Use the following repository: https://github.com/mdn/browser-compat-data  
+> There a section that tells you that you can download the [complete JSON](https://github.com/mdn/browser-compat-data?tab=readme-ov-file#other-languages)  
+
 Scraped from
 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#interactive_elements).
 
